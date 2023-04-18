@@ -1,10 +1,11 @@
 <template>
   <h1 class="headComponentTxt">See latest vacation ideas</h1>
-  <!-- <div class="swiper-pagination"></div> -->
   
+  <div class="swiper-paginations"></div>
   <div class="swiperMainContainer">
     <div class="swiperContainer">
       <swiper
+      :pagination="{ clickable: true , el:'.swiper-paginations' }"
         :modules="modules"
         class="swiper"
         :slides-per-view="dataValue"
@@ -62,7 +63,7 @@ export default {
     methods: {
       handleResize() {
         this.screenWidth = window.innerWidth
-        if (this.screenWidth < 768) {
+        if (this.screenWidth < 840) {
           this.dataValue = 1
         } else if(this.screenWidth < 1200) {
           this.dataValue = 2
@@ -73,7 +74,7 @@ export default {
     },
     watch: {
       screenWidth(newWidth) {
-        if (newWidth < 768) {
+        if (newWidth < 840) {
           this.dataValue = 1
         } else if(newWidth < 1200) {
           this.dataValue = 2
@@ -152,6 +153,11 @@ export default {
 .swiper {
   z-index: 0;
 }
+
+.swiper-pagination-bullet{
+  background-color: black !important;
+}
+
 
 .innerDiv{
   width: 90%;

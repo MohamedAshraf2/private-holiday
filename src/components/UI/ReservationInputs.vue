@@ -4,11 +4,13 @@
       <input
         type="text"
         class="form-control"
-        :placeholder="HotelLocations[0]"
-        v-model="selectedOption"
-        required
+        :placeholder="placehold"
         @focus="isDropdownOpen = true"
-      />
+        @blur="v$.selectedOption.$touch"
+        required
+        />
+        <!-- @blur="isDropdownOpen=false" -->
+        <!-- v-model="selectedOption" -->
       <font-awesome-icon
         icon="fa-solid fa-circle-chevron-down"
         class="dropdown-icon"
@@ -18,7 +20,7 @@
 
       <ul class="dropdown-list" v-if="isDropdownOpen">
         <li
-          v-for="(option, index) in HotelLocations"
+          v-for="(option, index) in optionsData"
           :key="index"
           @click="selectOption(option), $emit('add', option)"
         >
@@ -26,7 +28,7 @@
         </li>
       </ul>
     </div>
-    <!-- <div v-if="!selectedOption">Error! Choose something!</div> -->
+    <div v-if="v$.selectedOption.$error" class="unValid">Please Pick a valid option.</div>
   </div>
 </template>
 
@@ -40,11 +42,12 @@ export default {
       v$: useVuelidate(),
     };
   },
-  props:['HotelLocations'],
+  props:['optionsData'],
   data() {
     return {// dropdown options
       selectedOption: "", // selected option
       isDropdownOpen: false, // dropdown visibility flag
+      placehold:"select an option" // the value appears on input
     };
   },
   validations() {
@@ -55,6 +58,7 @@ export default {
   methods: {
     selectOption(option) {
       this.selectedOption = option;
+      this.placehold = option
       this.isDropdownOpen = false;
     },
   },
@@ -75,6 +79,10 @@ export default {
   width: 150px;
 }
 
+.unValid{
+  color: red;
+  /* font-size: 14px */
+}
 .dropdown-icon {
   position: absolute;
   right: 0;

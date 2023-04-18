@@ -4,10 +4,8 @@
       <input
         type="text"
         class="form-control"
-        :placeholder="date2"
+        :placeholder="placehold"
         @focus="isDropdownOpen = true"
-        
-
         :class="{ open: isDropdownOpen }"
         @click="isDropdownOpen = !isDropdownOpen"
         @blur="v$.date2.$touch"
@@ -37,12 +35,12 @@
         <VDatePicker
           class="calender"
           v-model="date2"
-          @click="$emit('add', date2), (isDropdownOpen = !isDropdownOpen)"
+          @click="$emit('add', date2), (isDropdownOpen = !isDropdownOpen) , cleked"
         />
       </ul>
-      <div v-if="!date2">Error! Choose something!</div>
+      <!-- <div v-if="!date2">Error! Choose something!</div> -->
     </div>
-    <div v-if="v$.date2.$error">Name field has an error.</div>
+    <div v-if="v$.date2.$error" class="unValid">Please Pick a valid date.</div>
   </div>
 </template>
 
@@ -60,8 +58,9 @@ export default {
     return {
       options: { year: "numeric", month: "long", day: "numeric" },
       // dropdown options
-      date2: ref(new Date()),
+      date2: ref(new Date("")),
       isDropdownOpen: false, // dropdown visibility flag
+      placehold: new Date()
     };
   },
   validations() {
@@ -69,7 +68,11 @@ export default {
       date2: { required },
     };
   },
-  methods: {},
+  methods: {
+    cleked (){
+      this.placehold = this.date2
+    }
+  },
 };
 </script>
 
@@ -130,6 +133,9 @@ export default {
   cursor: pointer;
 }
 
+.unValid{
+  color: red;
+}
 .dropdown-list li:hover {
   background-color: #f4f4f4;
 }

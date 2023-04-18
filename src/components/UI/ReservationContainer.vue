@@ -2,10 +2,10 @@
   <div class="d-flex justify-content-center">
     <form class="formWidth">
       <div class="row reservCont justify-content-between">
-        <reservation-inputs @add="(i) => (hotel = i)" :HotelLocations="locations" class="col-lg-6 col-md-12 col-xl-2" />
+        <reservation-inputs @add="(i) => (hotel = i)" :optionsData="locations" class="col-lg-6 col-md-12 col-xl-2" />
         <TimePickComponent @add="(i) => (startDate = i)" class="col-lg-6 col-md-12 col-xl-2" />
         <TimePickComponent @add="(i) => (endDate = i)" class="col-lg-6 col-md-12 col-xl-2" />
-        <reservation-inputs @add="(i) => (beds = i)" :HotelLocations="bedsNums" class="col-lg-6 col-md-12 col-xl-2" />
+        <reservation-inputs @add="(i) => (beds = i)" :optionsData="bedsNums" class="col-lg-6 col-md-12 col-xl-2" />
         <div class="col-xl-2 col-lg-2 col-md-12">
           <button type="button" class="btn btn-circle" @click="logAll">
             <font-awesome-icon icon="fa-solid fa-arrow-right" class="ico" />
@@ -27,7 +27,6 @@ export default {
   data() {
     return {
       valid : false,
-
       startDate: ref("0"),
       endDate: ref("0"),
       hotel: ref("0"),
