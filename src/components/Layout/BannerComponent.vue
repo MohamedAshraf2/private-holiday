@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ReservationContainer from "./ReservationContainer.vue";
+import ReservationContainer from "../UI/ReservationContainer.vue";
 
 export default {
   name: "BannerComponent",
@@ -25,14 +25,14 @@ export default {
 @font-face {
   font-family: "proximanova-extrabld";
   src: local("proximanova-extrabld"),
-    url(../assets/fonts/FontsFree-Net-Proxima-Nova-Xbold.otf) format("truetype");
+    url(../../assets/fonts/FontsFree-Net-Proxima-Nova-Xbold.otf) format("truetype");
 }
 .mainBannerComponent {
   display: flex;
 }
 .imageComponent {
   display: flex;
-  background-image: url("../assets/images/luxuryretreats\ .jpg");
+  background-image: url("../../assets/images/luxuryretreats\ .jpg");
   height: 509px;
   width: 100%;
   justify-content: center;

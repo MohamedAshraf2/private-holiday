@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg ">
         <div class="container">
             <a class="navbar-brand" href="">Private Holidays</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.navbar{
+  background-color: white;
+}
 .navbar-nav{
   width: 70%;
   justify-content: space-around;
@@ -49,7 +51,7 @@ export default {
 @font-face {
   font-family: "lustscript";
   src: local("lustscript"),
-   url(../assets/fonts/Lust-Script.ttf) format("truetype");
+   url(../../assets/fonts/Lust-Script.ttf) format("truetype");
 }
 
 .navbar-brand{
@@ -64,5 +66,10 @@ color: #171D1C;
 @media screen and (max-width:550px) {
   .navbar-brand{
     font-size: 24px;}
+}
+
+.nav-link{
+  color: black;
+  font-weight: bold;
 }
 </style>

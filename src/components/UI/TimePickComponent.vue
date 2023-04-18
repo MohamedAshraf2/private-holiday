@@ -3,13 +3,18 @@
     <div class="input-container">
       <input
         type="text"
-        class="underline-input"
-        placeholder="Mauritius"
-        v-model="selectedOption"
-        required
+        class="form-control"
+        :placeholder="date2"
         @focus="isDropdownOpen = true"
-        @blur="isDropdownOpen = false"
+        
+
+        :class="{ open: isDropdownOpen }"
+        @click="isDropdownOpen = !isDropdownOpen"
+        @blur="v$.date2.$touch"
+        required
       />
+      <!-- :value="date2.toLocaleDateString('en-US', options)" -->
+
       <svg
         class="dropdown-icon"
         @click="isDropdownOpen = !isDropdownOpen"
@@ -29,23 +34,22 @@
         />
       </svg>
       <ul class="dropdown-list" v-if="isDropdownOpen">
-        <li
-          v-for="(option, index) in options"
-          :key="index"
-          @click="selectOption(option), $emit('add', option)"
-        >
-          {{ option }}
-        </li>
+        <VDatePicker
+          class="calender"
+          v-model="date2"
+          @click="$emit('add', date2), (isDropdownOpen = !isDropdownOpen)"
+        />
       </ul>
+      <div v-if="!date2">Error! Choose something!</div>
     </div>
-    <!-- <div v-if="!selectedOption">Error! Choose something!</div> -->
+    <div v-if="v$.date2.$error">Name field has an error.</div>
   </div>
 </template>
 
 <script>
 import { useVuelidate } from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
-
+import { ref } from "vue";
 export default {
   setup() {
     return {
@@ -54,37 +58,41 @@ export default {
   },
   data() {
     return {
-      options: [" ", "Mauritius", "Mauritius 2", "Mauritius 3"], // dropdown options
-      selectedOption: "", // selected option
+      options: { year: "numeric", month: "long", day: "numeric" },
+      // dropdown options
+      date2: ref(new Date()),
       isDropdownOpen: false, // dropdown visibility flag
     };
   },
   validations() {
     return {
-      selectedOption: { required },
+      date2: { required },
     };
   },
-  methods: {
-    selectOption(option) {
-      this.selectedOption = option;
-      this.isDropdownOpen = false;
-    },
-  },
+  methods: {},
 };
 </script>
 
-<style>
+<style scoped>
 .input-container {
   position: relative;
   display: inline-block;
 }
 
-.underline-input {
-  border: none;
-  border-bottom: 2px solid #ccc;
+.form-control {
+  width: 150px;
   padding: 5px 10px;
+  border: none;
+  border-bottom: 2px solid RGBA(204, 204, 204, 1);
   font-size: 16px;
-  width: 200px;
+  font-family: inherit;
+  color: inherit;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.calender {
+  z-index: 3;
 }
 
 .dropdown-icon {
@@ -124,5 +132,19 @@ export default {
 
 .dropdown-list li:hover {
   background-color: #f4f4f4;
+}
+
+@media screen and (max-width: 1200px) {
+  
+  .form-control{
+    width: 300px;
+}
+}
+
+@media screen and (max-width: 500px) {
+  
+  .form-control{
+    width: 170px;
+}
 }
 </style>

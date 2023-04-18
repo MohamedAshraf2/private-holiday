@@ -1,19 +1,40 @@
 <template>
   <HeaderComponent/>
   <BannerComponent/>
+  
   <Swiper1Component/>
+  <Swiper2Component/>
+  <Swiper3Component/> 
+  <contact-component/>
+  <!-- <size-change/> -->
+  <footer-component/>
 </template>
 
 <script>
-import HeaderComponent from './components/HeaderComponent.vue';
-import BannerComponent from './components/BannerComponent.vue'
-import Swiper1Component from './components/Swiper1Component.vue';
+import HeaderComponent from './components/Layout/HeaderComponent.vue';
+import BannerComponent from './components/Layout/BannerComponent.vue';
+import Swiper3Component from './components/Sliders/Swiper3Component.vue';
+import Swiper1Component from './components/Sliders/Swiper1Component.vue';
+import Swiper2Component from './components/Sliders/Swiper2Component.vue';
+import ContactComponent from './components/Layout/ContactComponent.vue';
+import FooterComponent from './components/Layout/FooterComponent.vue';
+// import SizeChange from './components/SizeChange.vue';
+
+
+// import CardSwiper2 from './components/CardSwiper2.vue';
+// import Swiper2Component from './components/Swiper2Component.vue';
+
 export default {
   name: 'App',  
   components: {
     HeaderComponent,
     BannerComponent,
-    Swiper1Component
+    Swiper1Component,
+    Swiper2Component,
+    Swiper3Component,
+    ContactComponent,
+    FooterComponent,
+    // SizeChange
   }
 }
 </script>
@@ -25,10 +46,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-body {
-  font-size: calc(14px + (20 - 13) * ((100vw - 300px) / (1600 - 300)));
+  background-color: #ECF0F1;
 }
 
 </style>
