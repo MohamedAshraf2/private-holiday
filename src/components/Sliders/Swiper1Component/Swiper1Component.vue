@@ -19,7 +19,7 @@
           <div class="swiper-card container">
             <img :src="text.img" class="imag" />
             
-            <div class="imgTxt centered">
+            <div class="centered">
               <div class="innerDiv">
                 <h4>{{ text.text }}</h4>
               </div>
@@ -56,6 +56,7 @@ export default {
     },
     created() {
       window.addEventListener('resize', this.handleResize)
+      this.handleResize()
     },
     unmounted() {
       window.removeEventListener('resize', this.handleResize)
@@ -131,73 +132,6 @@ export default {
 };
 </script>
 
-<style scoped>
-
-.headComponentTxt{
-  font-family: 'keplerstd-bolddisp ';
-  font-size: 50px;
-}
-.imag {
-  height: 303px;
-  width: 353px;
-}
-.swiperMainContainer {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
-.swiperContainer {
-  width: 85%;
-}
-.swiper {
-  z-index: 0;
-}
-
-.swiper-pagination-bullet{
-  background-color: black !important;
-}
-
-
-.innerDiv{
-  width: 90%;
-  height: 80px;
-  border: 1px solid RGBA(204, 204, 204, 1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@font-face {
-  font-family: "keplerstd-bolddisp";
-  src: local("keplerstd-bolddisp"),
-   url(../../assets/fonts/KeplerStd-BoldDisp.otf) format("truetype");
-}
-.innerDiv h4{
-  font-family: "keplerstd-bolddisp";
-  font-size: 24px;
-font-weight: bold;
-font-style: normal;
-text-align: left;
-color: #454851;
-}
-.centered {
-  margin-top: 20%;
-  height: 100px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  width:80%
-}
-
-@media screen and (max-width: 1250px) {
-  .swiper .swiper-wrapper{
-    /* display: block !important;/ */
-    /* flex-direction: column; */
-  }
-}
+<style scoped lang="scss">
+@import './styles.scss'
 </style>

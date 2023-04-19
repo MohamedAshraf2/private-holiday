@@ -1,0 +1,33 @@
+$font-family_1: 'keplerstd-bolddisp ';
+$font-family_2: keplerstd-bolddisp;
+
+@font-face {
+	font-family: "keplerstd-bolddisp";
+	src: local("keplerstd-bolddisp"), url(../../../assets/fonts/KeplerStd-BoldDisp.otf) format("truetype");
+}
+.headComponentTxt {
+	font-family: $font-family_1;
+	font-size: 48px;
+	margin-top: 50px;
+	font-weight: bold;
+}
+.imag {
+	height: 130px;
+}
+.swiperMainContainer {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+.swiperContainer {
+	width: 100%;
+}
+.swiper {
+	z-index: 0;
+}
+.imgTxt {
+	h4 {
+		font-family: $font-family_2;
+	}
+}

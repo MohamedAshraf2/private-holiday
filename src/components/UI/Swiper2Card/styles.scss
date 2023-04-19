@@ -1,0 +1,22 @@
+
+.cardx {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+.swiperView {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+.card-half {
+	width: fit-content;
+	height: 50%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.imge {
+	margin: 1%;
+}

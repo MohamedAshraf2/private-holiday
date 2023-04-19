@@ -43,7 +43,7 @@
   import "swiper/css/pagination";
   import "swiper/css/scrollbar";
   import { ref } from "vue";
-import Swiper2Card from '../UI/Swiper2Card.vue';
+import Swiper2Card from '../../UI/Swiper2Card/Swiper2Card.vue';
   export default {
     components: {
       Swiper,
@@ -96,42 +96,7 @@ import Swiper2Card from '../UI/Swiper2Card.vue';
   };
   </script>
   
-  <style scoped>
-  
-  .headComponentTxt{
-    font-family: 'keplerstd-bolddisp ';
-    font-size: 50px;
-  }
-  
-  .imag {
-    height: 303px;
-    width: 423px;
-  }
-  .swiperMainContainer {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-  .swiperContainer {
-    width: 100%;
-  }
-  .swiper {
-    z-index: 0;
-  }
-  .swiper-card {
-    position: relative;
-    text-align: center;
-    /* color: white; */
-  }
-  
-  .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    width:80%
-  }
+  <style scoped lang="scss">
+  @import './styles.scss'
   </style>
   

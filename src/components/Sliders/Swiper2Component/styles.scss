@@ -1,0 +1,37 @@
+$font-family_1: 'keplerstd-bolddisp ';
+$background-color_1: #fff;
+
+.headComponentTxt {
+	font-family: $font-family_1;
+	font-size: 50px;
+	margin-top: 90px;
+	font-weight: bold;
+}
+.imag {
+	height: 303px;
+	width: 423px;
+}
+.swiperMainContainer {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+.swiperContainer {
+	width: 100%;
+}
+.swiper {
+	z-index: 0;
+}
+.swiper-card {
+	position: relative;
+	text-align: center;
+}
+.centered {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: $background-color_1;
+	width: 80%;
+}

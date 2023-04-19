@@ -1,0 +1,36 @@
+$color_1: white;
+$background-color_1: white;
+$background-color_2: RGBA(243, 17, 49, 1);
+
+.container {
+	align-items: center;
+	justify-content: center;
+}
+.formWidth {
+	width: 73%;
+	align-self: center;
+}
+.reservCont {
+	display: flex;
+	align-items: center;
+	margin: 2rem auto;
+	padding: 4rem 1rem;
+	background-color: $background-color_1;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.096);
+}
+.ico {
+	color: $color_1;
+}
+.btn-circle {
+	width: 40px;
+	height: 40px;
+	padding: 6px 0px;
+	border-radius: 25px;
+	margin-left: 10%;
+	background-color: $background-color_2;
+}
+@media screen and (max-width: 1200px) {
+	.btn-circle {
+		margin-top: 7%;
+	}
+}

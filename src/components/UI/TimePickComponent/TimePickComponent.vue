@@ -4,13 +4,13 @@
       <input
         type="text"
         class="form-control"
-        :placeholder="placehold"
+        :placeholder="placehold.toLocaleDateString('en',options)"
         @focus="isDropdownOpen = true"
         :class="{ open: isDropdownOpen }"
-        @click="isDropdownOpen = !isDropdownOpen"
         @blur="v$.date2.$touch"
         required
-      />
+        />
+        <!-- @click="isDropdownOpen = !isDropdownOpen" -->
       <!-- :value="date2.toLocaleDateString('en-US', options)" -->
 
       <svg
@@ -35,7 +35,7 @@
         <VDatePicker
           class="calender"
           v-model="date2"
-          @click="$emit('add', date2), (isDropdownOpen = !isDropdownOpen) , cleked"
+          @click="cleked(), $emit('add', date2) "
         />
       </ul>
       <!-- <div v-if="!date2">Error! Choose something!</div> -->
@@ -47,7 +47,7 @@
 <script>
 import { useVuelidate } from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
-import { ref } from "vue";
+// import { ref } from "vue";
 export default {
   setup() {
     return {
@@ -58,7 +58,7 @@ export default {
     return {
       options: { year: "numeric", month: "long", day: "numeric" },
       // dropdown options
-      date2: ref(new Date("")),
+      date2: "",
       isDropdownOpen: false, // dropdown visibility flag
       placehold: new Date()
     };
@@ -70,87 +70,14 @@ export default {
   },
   methods: {
     cleked (){
-      this.placehold = this.date2
+        this.placehold = this.date2;
+        console.log(this.placehold);
+        this.isDropdownOpen =false
     }
   },
 };
 </script>
 
-<style scoped>
-.input-container {
-  position: relative;
-  display: inline-block;
-}
-
-.form-control {
-  width: 150px;
-  padding: 5px 10px;
-  border: none;
-  border-bottom: 2px solid RGBA(204, 204, 204, 1);
-  font-size: 16px;
-  font-family: inherit;
-  color: inherit;
-  background-color: transparent;
-  box-shadow: none;
-}
-
-.calender {
-  z-index: 3;
-}
-
-.dropdown-icon {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-}
-
-.dropdown-icon.open {
-  transform: translateY(-50%) rotate(180deg);
-}
-
-.dropdown-list {
-  list-style: none;
-  margin: 0;
-  padding: 5px 0;
-  border: 1px solid #ccc;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #fff;
-  z-index: 1;
-}
-
-.dropdown-list li {
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.unValid{
-  color: red;
-}
-.dropdown-list li:hover {
-  background-color: #f4f4f4;
-}
-
-@media screen and (max-width: 1200px) {
-  
-  .form-control{
-    width: 300px;
-}
-}
-
-@media screen and (max-width: 500px) {
-  
-  .form-control{
-    width: 170px;
-}
-}
+<style scoped lang="scss">
+@import './styles.scss'
 </style>

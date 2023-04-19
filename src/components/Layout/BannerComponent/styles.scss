@@ -1,0 +1,32 @@
+
+@font-face {
+    font-family: "proximanova-extrabld";
+    src: local("proximanova-extrabld"),
+      url(../../../assets/fonts/FontsFree-Net-Proxima-Nova-Xbold.otf) format("truetype");
+  }
+  
+  $color_1: #ffffff;
+  $font-family_1: "proximanova-extrabld";
+  
+  .mainBannerComponent {
+      display: flex;
+  }
+  .imageComponent {
+      display: flex;
+      background-image: url("../../../assets/images/luxuryretreats\ .jpg");
+      height: 509px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+  }
+  .bannerTxt {
+      font-family: $font-family_1;
+      font-size: calc(50px + (35 - 10) * ((100vw - 300px) / (1600 - 300)));
+      font-weight: 400;
+      font-style: normal;
+      text-align: left;
+      color: $color_1;
+  }
+  .revCont {
+      margin-top: -5%;
+  }

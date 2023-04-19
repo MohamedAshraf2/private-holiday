@@ -1,6 +1,6 @@
 <template>
   <div class="contact-form">
-    <h2>Send us a message</h2>
+    <h2 class="hh2">Send us a message</h2>
     <div class="form">
       <div class="form-group">
         <input
@@ -57,63 +57,6 @@ export default {
 };
 </script>
 
-<style scoped>
-@font-face {
-  font-family: "keplerstd-bolddisp";
-  src: local("keplerstd-bolddisp"),
-    url(../../assets/fonts/KeplerStd-BoldDisp.otf) format("truetype");
-}
-h2 {
-  font-family: keplerstd-bolddisp;
-  align-self: flex-start;
-  margin: 10% 0 5% 10%;
-}
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form {
-  width: 75%;
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-.form-control {
-  width: 100%;
-  padding: 10px 0;
-  border: none;
-  border-bottom: 2px solid RGBA(204, 204, 204, 1);
-  font-size: 13px;
-  font-family: inherit;
-  color: inherit;
-  background-color: transparent;
-  box-shadow: none;
-}
-
-/* .underline {
-  width: 100%;
-  height: 1px;
-  background-color: RGBA(204, 204, 204, 1);
-} */
-
-.btn {
-  background-color: #f31131;
-  color: #fff;
-  border: none;
-  border-radius: 25px;
-  padding: 10px 30px;
-  font-size: 16px;
-  margin: 7% 50% 0 0;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #c4061f;
-}
+<style scoped lang="scss">
+@import './styles.scss'
 </style>

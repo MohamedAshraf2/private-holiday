@@ -1,0 +1,96 @@
+$color_1: #454851;
+$font-family_1: 'keplerstd-bolddisp ';
+$font-family_2: "keplerstd-bolddisp";
+$background-color_1: black;
+$background-color_2: #fff;
+
+@font-face {
+	font-family: "keplerstd-bolddisp";
+	src: local("keplerstd-bolddisp"), url(../../../assets/fonts/KeplerStd-BoldDisp.otf) format("truetype");
+}
+.headComponentTxt {
+	margin-top: 55px;
+	font-family: $font-family_1;
+	font-size: 50px;
+	font-weight: bold;
+}
+
+.swiper-pagination-bullets{
+    background-color: aquamarine
+}
+
+.swiper-pagination-bullet{
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-bottom-color: red !important;
+    position: relative;
+    top: -50px;
+  }
+  .swiper-pagination-bullet:after{
+    content: '';
+    position: absolute;
+    left: -50px;
+    top: 50px;
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-top-color: red !important;
+  }
+
+.imag {
+	height: 303px;
+	width: 353px;
+}
+.swiperMainContainer {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+.swiperContainer {
+	width: 100%;
+}
+.swiper {
+	z-index: 0;
+}
+.swiper-card {
+	position: relative;
+}
+.swiper-pagination-bullet-active{
+    background: blueviolet !important;
+}
+.innerDiv {
+	width: 90%;
+	height: 80px;
+	border: 1px solid RGBA(204, 204, 204, 1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	h4 {
+		font-family: $font-family_2;
+		font-size: 24px;
+		font-weight: bold;
+		font-style: normal;
+		text-align: left;
+		color: $color_1;
+	}
+}
+.centered {
+	margin-top: 70px;
+	height: 100px;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: $background-color_2;
+	width: 300px;
+}
+@media screen and (max-width: 450px) {
+	.centered {
+		width: 200px;
+	}
+}

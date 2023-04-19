@@ -31,4 +31,6 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(VCalendar, {})
 // app.use(ElementPlus)
 app.mount('#app')
+
+
 import "bootstrap/dist/js/bootstrap.js"
